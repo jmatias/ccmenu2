@@ -1,0 +1,6 @@
+fileignoreconfig:
+- filename: CCMenu/Servers/CodePipeline/ProviderRegistration.swift
+  checksum: 64692ef900a4f7f30ea47b69121dedea78c81ef504584bc6644dec84a4ad303f
+- filename: CCMenu/Servers/CodePipeline/README.md
+  checksum: ecd756490f0284167b2bb28f560fc47a8de09d17f025f9bb005a33b0ca4e9553
+version: "1.0"
