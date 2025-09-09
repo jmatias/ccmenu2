@@ -45,3 +45,7 @@ Carthage/Build/
 #
 
 .DS_Store
+
+*.zip
+.idea
+ccmenu2-aws-codepipeline-ui-pr

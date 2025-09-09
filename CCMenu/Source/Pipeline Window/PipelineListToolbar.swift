@@ -42,6 +42,10 @@ struct PipelineListToolbar: ToolbarContent {
 
         ToolbarItemGroup(placement: .principal) {
             Menu() {
+                Button("Add CodePipeline") {
+                    CodePipelineSettingsView()
+                        .frame(width: 520, height: 360)
+                }
                 Button("Add project from CCTray feed...") {
                     viewState.addCCTrayPipelineSheetConfig.isPresented = true
                 }

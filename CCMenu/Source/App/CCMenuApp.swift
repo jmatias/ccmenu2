@@ -16,6 +16,7 @@ struct CCMenuApp: App {
     private var notificationSender: NotificationSender
 
     init() {
+        registerAWSCodePipelineProvider()
         pipelineModel = PipelineModel()
         serverMonitor = ServerMonitor(model: pipelineModel)
         notificationSender = NotificationSender(model: pipelineModel)

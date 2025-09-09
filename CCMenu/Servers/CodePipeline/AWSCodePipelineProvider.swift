@@ -8,7 +8,6 @@
 
 import Foundation
 import AWSCodePipeline
-import AWSClientRuntime
 
 public enum CPBuildState: Sendable {
     case success, failed, running, unknown
@@ -34,7 +33,7 @@ public struct CPExecutionStatus: Sendable {
 }
 
 public protocol CodePipelineClientish {
-    func listPipelinesPaginator(input: ListPipelinesInput) async throws -> PaginatorSequence<ListPipelinesInput, ListPipelinesOutput>
+    func listPipelines(input: ListPipelinesInput) async throws -> ListPipelinesOutput
     func listPipelineExecutions(input: ListPipelineExecutionsInput) async throws -> ListPipelineExecutionsOutput
     func getPipelineState(input: GetPipelineStateInput) async throws -> GetPipelineStateOutput
 }
@@ -55,14 +54,21 @@ public final class CodePipelineService {
 
     public func listPipelines(limit: Int = 100) async throws -> [CPPipelineSummary] {
         var out: [CPPipelineSummary] = []
-        var pager = try await client.listPipelinesPaginator(input: ListPipelinesInput(maxResults: limit))
-        for try await page in pager {
-            for p in page.pipelines ?? [] {
+        var nextToken: String? = nil
+
+        repeat {
+            let resp = try await client.listPipelines(
+                input: ListPipelinesInput(maxResults: limit, nextToken: nextToken)
+            )
+            for p in resp.pipelines ?? [] {
                 out.append(.init(name: p.name ?? "", updatedAt: p.updated))
             }
-        }
+            nextToken = resp.nextToken
+        } while nextToken != nil
+
         return out.sorted { $0.name < $1.name }
     }
+
 
     public func latestExecutionStatus(pipelineName: String) async throws -> CPExecutionStatus {
         let page = try await client.listPipelineExecutions(input: ListPipelineExecutionsInput(maxResults: 1, pipelineName: pipelineName))

@@ -108,6 +108,12 @@
 		2FA2827139B00E15C5CD2E7F /* GitHubResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA2833D541ABE8B0D2E7615 /* GitHubResponseParserTests.swift */; };
 		2FA28718B9A6BD8E1C32FF55 /* CCTrayResponseParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28075764358E9D929CECD /* CCTrayResponseParserTests.swift */; };
 		2FA28FBCC0398D63EF2D2C16 /* NSImageExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA28CB152CE8C0CFD6EE3A8 /* NSImageExtensionTests.swift */; };
+		3BA0CC0F2E6E1D3F003B244E /* CodePipelineServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0CC092E6E1D3F003B244E /* CodePipelineServer.swift */; };
+		3BA0CC102E6E1D3F003B244E /* ProviderRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0CC0A2E6E1D3F003B244E /* ProviderRegistration.swift */; };
+		3BA0CC112E6E1D3F003B244E /* AWSCodePipelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0CC082E6E1D3F003B244E /* AWSCodePipelineProvider.swift */; };
+		3BA0CC142E6E1D72003B244E /* AWSCodePipeline in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA0CC132E6E1D72003B244E /* AWSCodePipeline */; };
+		3BA0CC162E6E1DBD003B244E /* AWSClientRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 3BA0CC152E6E1DBD003B244E /* AWSClientRuntime */; };
+		3BA0CC1A2E6E1DF1003B244E /* CodePipelineSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA0CC172E6E1DF1003B244E /* CodePipelineSettingsView.swift */; };
 		3C3ADA2B2BC0DAA500AEEEA1 /* PipelineDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ADA2A2BC0DAA500AEEEA1 /* PipelineDocument.swift */; };
 		3C4DEDA22B49AB7A00B85A8C /* NSWorkspaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4DEDA12B49AB7A00B85A8C /* NSWorkspaceExtension.swift */; };
 		3C95D3512BAC601C007AED1E /* ServerMonitorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C95D3502BAC601C007AED1E /* ServerMonitorIntegrationTests.swift */; };
@@ -248,6 +254,11 @@
 		2FA28075764358E9D929CECD /* CCTrayResponseParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTrayResponseParserTests.swift; sourceTree = "<group>"; };
 		2FA2833D541ABE8B0D2E7615 /* GitHubResponseParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubResponseParserTests.swift; sourceTree = "<group>"; };
 		2FA28CB152CE8C0CFD6EE3A8 /* NSImageExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImageExtensionTests.swift; sourceTree = "<group>"; };
+		3BA0CC082E6E1D3F003B244E /* AWSCodePipelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSCodePipelineProvider.swift; sourceTree = "<group>"; };
+		3BA0CC092E6E1D3F003B244E /* CodePipelineServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePipelineServer.swift; sourceTree = "<group>"; };
+		3BA0CC0A2E6E1D3F003B244E /* ProviderRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderRegistration.swift; sourceTree = "<group>"; };
+		3BA0CC0B2E6E1D3F003B244E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3BA0CC172E6E1DF1003B244E /* CodePipelineSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePipelineSettingsView.swift; sourceTree = "<group>"; };
 		3C3ADA2A2BC0DAA500AEEEA1 /* PipelineDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipelineDocument.swift; sourceTree = "<group>"; };
 		3C4DEDA12B49AB7A00B85A8C /* NSWorkspaceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWorkspaceExtension.swift; sourceTree = "<group>"; };
 		3C95D34E2BAC601C007AED1E /* CCMenuIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCMenuIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,7 +276,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA0CC162E6E1DBD003B244E /* AWSClientRuntime in Frameworks */,
 				032205392B9D29DB00205DC6 /* SettingsAccess in Frameworks */,
+				3BA0CC142E6E1D72003B244E /* AWSCodePipeline in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +408,8 @@
 		03BD7E872598E579000F9495 /* CCMenu */ = {
 			isa = PBXGroup;
 			children = (
+				3BA0CC192E6E1DF1003B244E /* UI */,
+				3BA0CC0D2E6E1D3F003B244E /* Servers */,
 				03CC11E02652F06F00130833 /* Source */,
 				03CC11E72652F1B700130833 /* Resources */,
 				03BD7E8C2598E57A000F9495 /* Assets.xcassets */,
@@ -584,6 +599,41 @@
 			path = "GitLab Sheets";
 			sourceTree = "<group>";
 		};
+		3BA0CC0C2E6E1D3F003B244E /* CodePipeline */ = {
+			isa = PBXGroup;
+			children = (
+				3BA0CC082E6E1D3F003B244E /* AWSCodePipelineProvider.swift */,
+				3BA0CC092E6E1D3F003B244E /* CodePipelineServer.swift */,
+				3BA0CC0A2E6E1D3F003B244E /* ProviderRegistration.swift */,
+				3BA0CC0B2E6E1D3F003B244E /* README.md */,
+			);
+			path = CodePipeline;
+			sourceTree = "<group>";
+		};
+		3BA0CC0D2E6E1D3F003B244E /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				3BA0CC0C2E6E1D3F003B244E /* CodePipeline */,
+			);
+			path = Servers;
+			sourceTree = "<group>";
+		};
+		3BA0CC182E6E1DF1003B244E /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				3BA0CC172E6E1DF1003B244E /* CodePipelineSettingsView.swift */,
+			);
+			path = Servers;
+			sourceTree = "<group>";
+		};
+		3BA0CC192E6E1DF1003B244E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3BA0CC182E6E1DF1003B244E /* Servers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		3C95D34F2BAC601C007AED1E /* CCMenuIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +661,8 @@
 			name = CCMenu;
 			packageProductDependencies = (
 				032205382B9D29DB00205DC6 /* SettingsAccess */,
+				3BA0CC132E6E1D72003B244E /* AWSCodePipeline */,
+				3BA0CC152E6E1DBD003B244E /* AWSClientRuntime */,
 			);
 			productName = CCMenu;
 			productReference = 03BD7E852598E578000F9495 /* CCMenu.app */;
@@ -716,6 +768,7 @@
 				032205152B8EA60900205DC6 /* XCRemoteSwiftPackageReference "hummingbird" */,
 				0322052C2B96769800205DC6 /* XCRemoteSwiftPackageReference "hummingbird-auth" */,
 				032205372B9D29DB00205DC6 /* XCRemoteSwiftPackageReference "SettingsAccess" */,
+				3BA0CC122E6E1D72003B244E /* XCRemoteSwiftPackageReference "aws-sdk-swift" */,
 			);
 			productRefGroup = 03BD7E862598E578000F9495 /* Products */;
 			projectDirPath = "";
@@ -811,6 +864,9 @@
 				03825DFA259D0ACF00DEB003 /* PipelineListView.swift in Sources */,
 				038FF7182BB631CB0017CD4C /* URLComponentsExtension.swift in Sources */,
 				03825DF2259D01C600DEB003 /* PipelineRow.swift in Sources */,
+				3BA0CC0F2E6E1D3F003B244E /* CodePipelineServer.swift in Sources */,
+				3BA0CC102E6E1D3F003B244E /* ProviderRegistration.swift in Sources */,
+				3BA0CC112E6E1D3F003B244E /* AWSCodePipelineProvider.swift in Sources */,
 				0362EBED2B521BD50079DEFE /* NotificationFactory.swift in Sources */,
 				03CC61D12BA783EE0008EE76 /* NetworkMonitor.swift in Sources */,
 				03825DE3259CFF0A00DEB003 /* Pipeline.swift in Sources */,
@@ -823,6 +879,7 @@
 				039B524629676D0700994910 /* Build.swift in Sources */,
 				3C3ADA2B2BC0DAA500AEEEA1 /* PipelineDocument.swift in Sources */,
 				03DA98E22B44CE1A0073F5BB /* GitHubAuthenticator.swift in Sources */,
+				3BA0CC1A2E6E1DF1003B244E /* CodePipelineSettingsView.swift in Sources */,
 				03412AE12B5DCD5100EFDFCB /* CCTrayAPI.swift in Sources */,
 				03DA98E02B44BF620073F5BB /* GitHubPipelineBuilder.swift in Sources */,
 				037AB2182979E30300C33589 /* MenuBarExtraMenu.swift in Sources */,
@@ -1534,6 +1591,14 @@
 				minimumVersion = 1.4.0;
 			};
 		};
+		3BA0CC122E6E1D72003B244E /* XCRemoteSwiftPackageReference "aws-sdk-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/awslabs/aws-sdk-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.36;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1551,6 +1616,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 032205372B9D29DB00205DC6 /* XCRemoteSwiftPackageReference "SettingsAccess" */;
 			productName = SettingsAccess;
+		};
+		3BA0CC132E6E1D72003B244E /* AWSCodePipeline */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BA0CC122E6E1D72003B244E /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
+			productName = AWSCodePipeline;
+		};
+		3BA0CC152E6E1DBD003B244E /* AWSClientRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BA0CC122E6E1D72003B244E /* XCRemoteSwiftPackageReference "aws-sdk-swift" */;
+			productName = AWSClientRuntime;
 		};
 		3C95D3572BAC651A007AED1E /* Hummingbird */ = {
 			isa = XCSwiftPackageProductDependency;
